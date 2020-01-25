@@ -27,7 +27,8 @@
 		</div>
 		<h3>Time</h3>
 		<label><b>Start Time</b> <small>in 24 hour format</small>: <input type="time" name="start" value="14:00" required></label><br>
-		<label><b>Gaps</b> <small>in minutes</small>: <input type="number" name="gap" placeholder="The amount of minutes between each group's meetings" required></label> <span id="err" style="color:red"><b></b></span><br>
+		<label><b>Gaps</b> <small>in minutes</small>: <input type="number" name="gap" value="30" placeholder="The amount of minutes between each group's meetings" required></label> <span id="err" style="color:red"><b></b></span><br>
+		<label><b>Group Size</b>: <input type="number" name="size" value="2" placeholder="The size of each group" required></label> <span id="err2" style="color:red"><b></b></span><br>
 		<button class="btn btn-success" id="download" hidden>Download Table</button><br>
 		<button class="btn btn-primary" id="submit">Submit</button>
 		<table class="meets">

@@ -49,9 +49,16 @@ $(document).ready(function(){
             alert("Please fill in the required fields");
             return 0;
         }
+        if (!$("input[name='size']").val() || $("input[name='size']").val() === "" || isNaN(parseFloat($("input[name='size']").val())) && isFinite($("input[name='gap']").val()))
+        {
+            $('#err2').replaceWith("<span id='err' style='color:red'><b>Please enter the group size</b></span><br>");
+            alert("Please fill in the required fields");
+            return 0;
+        }
         $(".meets").replaceWith("<table class='meets'><tr><th>Names</th><th>Time</th></tr></table>");
         var _start = $("input[name='start']").val().split(/\:|\-/g);
         var gap = parseInt($("input[name='gap']").val());
+        var size = parseInt($("input[name='size']").val());
         var names = [];
         $('.field_wrapper div').each(function(field) {
             names.push($('input', this).val());
@@ -61,12 +68,12 @@ $(document).ready(function(){
         _time.setHours(_start[0]);
         _time.setMinutes(_start[1]);
         var time = _time.getMinutes > 9 ? `${_time.getHours()}:${_time.getMinutes()}` : `${_time.getHours()}:0${_time.getMinutes()}`;
-        for (var i=0 ; i<names.length; i+=2) {
-            if (names.length % 2 == 0)
-                {$('.meets').append(`<tr><td>${names[i]} - ${names[i+1]}</td><td>${time}</td></tr>`);}
+        for (var i=0 ; i<names.length; i+=size) {
+            if (names.length % size == 0)
+                {$('.meets').append(`<tr><td>${Array.prototype.slice.call(names,i,i+size).join(' - ')}</td><td>${time}</td></tr>`);}
             else {
                 if (i != names.length - 1)
-                    {$('.meets').append(`<tr><td>${names[i]} - ${names[i+1]}</td><td>${time}</td></tr>`);}
+                    {$('.meets').append(`<tr><td>${Array.prototype.slice.call(names,i,i+size).join(' - ')}</td><td>${time}</td></tr>`);}
                 else
                     {$('.meets').append(`<tr><td>${names[i]}</td><td>${time}</td></tr>`);}
             }
