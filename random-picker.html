@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Picker</title>
+	<script src="ext/jquery.min.js"></script>
+	<script type="text/javascript" src="random-picker.js"></script>
+	<link rel="stylesheet" href="./ext/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="random-picker.css">
+</head>
+<body>
+	<header>
+		<h1>Random Picker</h1>
+		<p>Add a list of names, and have them randomly divided into groups. Each group will be randomly assigned a time for their meeting.</p>
+	</header>
+
+	<hr>
+
+	<main>
+		<h3>Names</h3>
+		<div class="field_wrapper">
+    		<div>
+        		<input type="text" name="field_name[]" value=""/>
+        		<a href="javascript:void(0);" class="add_button" title="Add field">
+        			<img src="ico/plus.png" width="16px" />
+        		</a>
+    		</div>
+		</div>
+		<h3>Time</h3>
+		<label><b>Start Time</b> <small>in 24 hour format</small>: <input type="time" name="start" value="14:00" required></label><br>
+		<label><b>Gaps</b> <small>in minutes</small>: <input type="number" name="gap" placeholder="The amount of minutes between each group's meetings" required></label> <span id="err" style="color:red"><b></b></span><br>
+		<button class="btn btn-success" id="download" hidden>Download Table</button><br>
+		<button class="btn btn-primary" id="submit">Submit</button>
+		<table class="meets">
+		</table>
+	</main>
+
+	<hr>
+
+	<footer>
+		<p><em>Github: github.com/Mora-Hannover</em></p>
+		<p><small>Icons made by: <ul><li><a href="https://www.flaticon.com/authors/phatplus" title="phatplus">phatplus</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></li>
+		<li><a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></li></ul></small></p>
+	</footer>
+</body>
+</html>
